@@ -5,7 +5,7 @@ from streamlit_folium import folium_static
 import folium
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as components
-
+from pymongo import MongoClient
 
 df=pd.read_csv('petd.csv')
 try:
@@ -25,6 +25,10 @@ if (selected=="About Us"):
     st.write("Adopet")
 if (selected=="Pet"):
     
+    client = MongoClient('mongodb://localhost:27017/')
+
+
+
     animal=st.selectbox("Animal Type: ", df.Animal.unique().tolist())
     breed=st.selectbox("Breed Type: ", df.Type.unique().tolist())
     age1= st.selectbox("Age: ", df.Age.unique().tolist())
@@ -37,5 +41,7 @@ if (selected=="Pet"):
     picture = st.camera_input("Take a picture")
     lang=st.text_input("Longitude", "")
     lati=st.text_input("Langitude", "")
-    
+        with client:
 
+        db = client.Adopet
+        
