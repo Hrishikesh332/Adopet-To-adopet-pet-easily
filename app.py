@@ -44,4 +44,5 @@ if (selected=="Pet"):
         with client:
 
         db = client.Adopet
+        data= [ {'Animal': animal, 'Type':breed, }]
         
