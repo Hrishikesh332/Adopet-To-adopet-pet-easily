@@ -44,5 +44,7 @@ if (selected=="Pet"):
         with client:
 
         db = client.Adopet
-        data= [ {'Animal': animal, 'Type':breed, }]
+        data= [ {'Animal': animal, 'Type':breed, "Age": age1, "Gender": gender, "Size": size, "Fur":fur_type, "Color":color1, "Trained": trained, "Vaccinated": vaccinated, "Image
+":picture, "Latitude": lati, "Longitude": lang}]
+        db.data.insert(data)
         
